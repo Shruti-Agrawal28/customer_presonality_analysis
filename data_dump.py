@@ -6,7 +6,6 @@ import os
 DATA_FILE_PATH = "marketing_campaign.csv"
 DATABASE_NAME = "dataset"
 COLLECTION_NAME = "campaigns"
-mongo_client = pymongo.MongoClient("mongodb+srv://shruti:shruti28@cluster0.iapyxss.mongodb.net/?retryWrites=true&w=majority")
 
 if __name__=="__main__":
     df = pd.read_csv(DATA_FILE_PATH, sep="\t")

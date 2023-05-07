@@ -7,7 +7,7 @@ import yaml
 import numpy as np
 import dill
 import pymongo
-mongo_client = pymongo.MongoClient("mongodb+srv://shruti:shruti28@cluster0.iapyxss.mongodb.net/?retryWrites=true&w=majority")
+from analysis.config import mongo_client
 
 
 def get_collection_as_dataframe(database_name: str, collection_name: str) -> pd.DataFrame:
