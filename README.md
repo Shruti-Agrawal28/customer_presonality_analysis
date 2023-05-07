@@ -14,9 +14,6 @@ To run this machine learning model, you will need Python 3.6 or later, as well a
 
 To install this machine learning model, clone the repository to your local machine and install the necessary Python packages using pip:
 
-
-git clone https://github.com/your-username/customer-personality-analysis.git
-cd customer-personality-analysis
 pip install -r requirements.txt
 
 
