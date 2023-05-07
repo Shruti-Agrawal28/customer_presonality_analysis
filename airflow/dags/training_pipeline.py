@@ -8,7 +8,7 @@ from airflow.operators.python import PythonOperator
 
 
 with DAG(
-    'sensor_training',
+    'customer-segmentation',
     default_args={'retries': 2},
     # [END default_args]
     description='Customer Personality analysis',
