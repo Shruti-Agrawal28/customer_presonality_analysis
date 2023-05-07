@@ -25,13 +25,13 @@ pip install -r requirements.txt
 To use this machine learning model, you will need to train it on your dataset. The `train.py` script can be used to train the model:
 
 
-python train.py --data-path /path/to/data.csv --output-path /path/to/model.pkl
+python train.py 
 
 
-Once the model has been trained, you can use it to predict the personality traits of new customers. The `predict.py` script can be used to make predictions:
+Once the model has been trained, you can use it to predict the personality traits of new customers. The `batch_prediction.py` script can be used to make predictions:
 
 
-python predict.py --model-path /path/to/model.pkl --data-path /path/to/new_data.csv
+python batch_prediction.py 
 
 
 ## Model Architecture
