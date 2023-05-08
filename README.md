@@ -16,7 +16,6 @@ To install this machine learning model, clone the repository to your local machi
 
 pip install -r requirements.txt
 
-
 ### Usage
 
 To use this machine learning model, you will need to train it on your dataset. The `train.py` script can be used to train the model:
