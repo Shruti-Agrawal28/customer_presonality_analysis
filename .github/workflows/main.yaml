@@ -21,7 +21,6 @@ jobs:
      run: |
       sudo apt-get update
       sudo apt-get install -y jq unzip
-
    - name: Configure AWS credentials
      uses: aws-actions/configure-aws-credentials@v1
      with:
@@ -32,7 +31,7 @@ jobs:
    - name: Login to Amazon ECR
      id: login-ecr
      uses: aws-actions/amazon-ecr-login@v1
-    
+
    - name: Build, tag, and push image to Amazon ECR
      id: build-image
      env:
@@ -45,15 +44,14 @@ jobs:
        # be deployed to ECS.
        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-       echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" 
-
+       echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
  Continuous-Deployment:
   needs: build-and-push-ecr-image
   runs-on: self-hosted
   steps:
   - name: Checkout
     uses: actions/checkout@v3
-  
+
   - name: Configure AWS credentials
     uses: aws-actions/configure-aws-credentials@v1
     with:
@@ -67,17 +65,14 @@ jobs:
   - name: Login to Amazon ECR
     id: login-ecr
     uses: aws-actions/amazon-ecr-login@v1
-    
+
   - name: Pull docker image
     run: |
-      docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+      docker pull ${{secrets.AWS_ECR_LOGIN_URI}}:latest
   - name: Run Docker Image to serve users
     run: |
-      export IMAGE_NAME="${{secrets.AWS_ECR_LOGIN_URI}}"/"${{ secrets.ECR_REPOSITORY_NAME }}":latest AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }} BUCKET_NAME=${{ secrets.BUCKET_NAME }} "MONGO_DB_URL=${{ secrets.MONGO_DB_URL }}" && docker compose up -d
+      export IMAGE_NAME="${{secrets.AWS_ECR_LOGIN_URI}}":latest AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }} BUCKET_NAME=${{ secrets.BUCKET_NAME }} "MONGO_DB_URL=${{ secrets.MONGO_DB_URL }}" && docker compose up -d
   - name: Docker System Prune to Remove Old Images
     run: |
       docker system prune -f
-
-
-
 
