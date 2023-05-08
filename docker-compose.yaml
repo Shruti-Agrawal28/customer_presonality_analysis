@@ -2,7 +2,7 @@ version: "2"
 services:
  application:
     image: ${IMAGE_IMAGE}
-    container_name: sensor
+    container_name: analysis
     ports:
       - "8080:8080"
     environment:
