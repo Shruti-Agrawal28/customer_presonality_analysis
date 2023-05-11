@@ -40,6 +40,3 @@ The natural language processing component of the model is used to analyze custom
 
 If you would like to contribute to this machine learning model, please submit a pull request with your proposed changes. We welcome contributions from the community and are happy to review and merge changes that improve the model.
 
-## License
-
-This machine learning model is released under the MIT License. See the [LICENSE](LICENSE) file for more information.
