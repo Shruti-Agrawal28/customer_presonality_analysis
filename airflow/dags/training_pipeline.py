@@ -5,6 +5,7 @@ import pendulum
 import os
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from analysis.logger import logging
 
 
 with DAG(
@@ -21,7 +22,7 @@ with DAG(
     def training(**kwargs):
         from analysis.pipeline.training_pipeline import start_training_pipeline
         start_training_pipeline()
-        log.info("starting training pipeline")
+        logging.info("starting training pipeline")
     
     def sync_artifact_to_s3_bucket(**kwargs):
         bucket_name = os.getenv("BUCKET_NAME")
