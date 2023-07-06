@@ -1,5 +1,4 @@
 import pandas as pd
-
 from analysis.entity import artifact_entity, config_entity
 from analysis.exception import SensorException
 from analysis.logger import logging

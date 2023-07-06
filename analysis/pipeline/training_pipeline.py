@@ -9,7 +9,7 @@ from analysis.components.data_transformation import DataTransformation
 from analysis.components.model_trainer import ModelTrainer
 from analysis.components.model_evaluation import ModelEvaluation
 from analysis.components.model_pusher import ModelPusher
-
+from streamlit_app import CustomerSegmentationApp
 
 def start_training_pipeline():
     try:
@@ -27,6 +27,20 @@ def start_training_pipeline():
         data_transformation = DataTransformation(data_transformation_config=data_transformation_config,
                                                  data_ingestion_artifact=data_ingestion_artifact)
         data_transformation_artifact = data_transformation.initiate_data_transformation()
+        app = CustomerSegmentationApp(data_transformation_artifact)
+
+        # Import the data
+        app.import_data()
+
+        # Define the features
+        selected_features = ['Age', 'Income', 'Money_Spent', 'Recency','Education', 'Family_Size']
+
+        # Display cluster distribution
+        app.display_cluster_distribution()
+
+        # Visualize the clusters
+        app.visualize_clusters(selected_features)
+
 
         # data validation
         data_validation_config = config_entity.DataValidationConfig(training_pipeline_config=training_pipeline_config)

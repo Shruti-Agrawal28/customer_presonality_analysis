@@ -1,5 +1,35 @@
 from analysis.pipeline.training_pipeline import start_training_pipeline
 from analysis.pipeline.batch_prediction import start_batch_prediction
+import streamlit_app as st
+styles = """
+    .container {
+        width: 500px;
+        margin: auto;
+    }
+    .input-label {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .input-field {
+        font-size: 16px;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .submit-button {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
+    }
+    .result {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        white-space: pre-line;
+    }
+"""
+
 
 file_path = "marketing_campaign.csv"
 print(__name__)
