@@ -1,6 +1,5 @@
-from analysis.pipeline.training_pipeline import start_training_pipeline
 from analysis.pipeline.batch_prediction import start_batch_prediction
-import streamlit_app as st
+
 styles = """
     .container {
         width: 500px;

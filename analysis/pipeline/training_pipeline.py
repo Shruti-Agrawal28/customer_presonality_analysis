@@ -1,7 +1,5 @@
-from analysis.logger import logging
 from analysis.exception import SensorException
-from analysis.utils import get_collection_as_dataframe
-import sys, os
+import sys
 from analysis.entity import config_entity
 from analysis.components.data_ingestion import DataIngestion
 from analysis.components.data_validation import DataValidation
@@ -9,7 +7,7 @@ from analysis.components.data_transformation import DataTransformation
 from analysis.components.model_trainer import ModelTrainer
 from analysis.components.model_evaluation import ModelEvaluation
 from analysis.components.model_pusher import ModelPusher
-from streamlit_app import CustomerSegmentationApp
+from analysis.streamlit_app import CustomerSegmentationApp
 
 def start_training_pipeline():
     try:
