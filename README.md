@@ -22,7 +22,7 @@ pip install -r requirements.txt
 To use this machine learning model, you will need to train it on your dataset. The `train.py` script can be used to train the model:
 
 
-python train.py 
+streamlit run train.py 
 
 
 Once the model has been trained, you can use it to predict the personality traits of new customers. The `batch_prediction.py` script can be used to make predictions:
