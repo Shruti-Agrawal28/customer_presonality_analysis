@@ -1,6 +1,6 @@
 # Customer Personality Analysis Machine Learning Model
 
-This machine learning model is designed to analyze customer data and predict personality traits based on that data. The model uses a variety of techniques, including natural language processing, clustering, and classification, to identify patterns in customer behavior and determine their personality characteristics.
+This machine learning model is designed to analyze customer data and predict personality traits based on that data. The model uses a variety of techniques, including clustering, and classification, to identify patterns in customer behavior and determine their personality characteristics.
 
 ## Getting Started
 
@@ -32,9 +32,9 @@ python batch_prediction.py
 
 ## Model Architecture
 
-This machine learning model uses a combination of natural language processing, clustering, and classification techniques to predict customer personality traits. The model is trained on a dataset of customer data, including demographic information, purchase history, and customer feedback.
+This machine learning model uses a combination of clustering, and classification techniques to predict customer personality traits. The model is trained on a dataset of customer data, including demographic information, purchase history, and customer feedback.
 
-The natural language processing component of the model is used to analyze customer feedback and identify patterns in the language used by customers with similar personality traits. The clustering component is used to group customers with similar personality traits together, while the classification component is used to predict the personality traits of new customers based on their data.
+The clustering component is used to group customers with similar personality traits together, while the classification component is used to predict the personality traits of new customers based on their data.
 
 ## Contributing
 
